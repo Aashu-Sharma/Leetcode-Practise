@@ -20,4 +20,30 @@ const provide_nums = (input, list) => {
   }
 };
 
-provide_nums(input_nums, lst);
+// provide_nums(input_nums, lst);
+
+const my_str = "aashutosh"
+const characters_to_count = ["a", "s", "d", "u", "h"]
+
+
+const find_character_count = (char, str) => {
+  let new_list = new Array(26).fill(0);
+  for (const c of str) {
+    let index = c.charCodeAt(0) - 'a'.charCodeAt(0);
+    new_list[index] += 1;
+  }
+  console.log(char, new_list[char.charCodeAt(0) - 'a'.charCodeAt(0)]);
+}
+
+
+const provide_character_to_count = (char_list, str) => {
+  for (const char of char_list) {
+    if (str.includes(char)){
+      find_character_count(char, str);
+    }else{
+      console.log(char, 0);
+    }
+  }
+}
+
+provide_character_to_count(characters_to_count, my_str)

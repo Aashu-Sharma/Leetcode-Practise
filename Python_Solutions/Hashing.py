@@ -17,4 +17,26 @@ def provide_nums(nums, lst):
             print(num, 0)
             
 
-provide_nums(input_nums, lst)
+# provide_nums(input_nums, lst)
+
+name = "aashutosh"
+characters_to_count = ["a", "s", "d", "u", "h"]
+
+def find_character_count(char, string):
+    new_lst = [0] * 26
+    
+    for i in string:
+        index = ord(i) - ord('a')
+        new_lst[index] += 1
+        
+    print(char, new_lst[ord(char) - ord('a')])
+
+
+def provide_character_to_count(string, char_list):
+    for char in char_list:
+        if char in string:
+            find_character_count(char, string)
+        else:
+            print(char, 0)
+
+provide_character_to_count(name, characters_to_count)
