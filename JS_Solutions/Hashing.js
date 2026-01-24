@@ -4,8 +4,8 @@ const input_nums = [1, 2, 3, 10, 12, 13];
 
 const find_count_of_elements = (n, list) => {
     let new_list = new Array(14).fill(0);
-    for(let i = 0; i <= list.length; i++){
-        new_list[lst[i]] += 1;
+    for (const num of list) {
+        new_list[num] += 1;
     }
     console.log(n, new_list[n]);
 };
