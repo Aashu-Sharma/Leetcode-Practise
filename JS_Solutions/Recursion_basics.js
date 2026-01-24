@@ -61,7 +61,7 @@
 
 // let sum = 0; for the first recursive approach
 // let curr = 1; for the first recursive approach
-function sumOfFirstNNumbers(n  /*curr, n */) {
+function sumOfFirstNNumbers(n /*curr, n */) {
   // brute force
   // let curr = 1;
   // let sum = 0;
@@ -70,11 +70,9 @@ function sumOfFirstNNumbers(n  /*curr, n */) {
   //     curr++;
   // }
   // return sum;
-
   // with formula
   // let sum = (n * (n+1))/2;
   // return sum;
-
   // with recursion my approach
   // sum += curr;
   // curr++;
@@ -82,7 +80,6 @@ function sumOfFirstNNumbers(n  /*curr, n */) {
   //   sumOfFirstNNumbers(curr, n);
   // }
   // return sum;
-
   // if (n === 1) return n;
   // return n + sumOfFirstNNumbers(n-1);
 }
@@ -100,7 +97,6 @@ function sumOfFirstNNumbers(n  /*curr, n */) {
 // }
 
 // console.log(findFactorial(n))
-
 
 //recursive approach;
 // let n = 100;
@@ -160,30 +156,30 @@ let str = "A man, a plan, a canal: Pa";
 //   return newStr === s;
 // }
 
-function checkPallindrome(s){
-  let start = 0;
-  let end = s.length - 1;
+// function checkPallindrome(s){
+//   let start = 0;
+//   let end = s.length - 1;
 
-  while(end > start){
-    while(start < end && !isAlphaNumeric(s[start])){
-      start++;
-    }
-    while(start < end && !isAlphaNumeric(s[end])){
-      end--
-    }
-    if(s[start].toLowerCase() !== s[end].toLowerCase()) return false;
-    start++;
-    end--;
-  }
-  return true;
-}
+//   while(end > start){
+//     while(start < end && !isAlphaNumeric(s[start])){
+//       start++;
+//     }
+//     while(start < end && !isAlphaNumeric(s[end])){
+//       end--
+//     }
+//     if(s[start].toLowerCase() !== s[end].toLowerCase()) return false;
+//     start++;
+//     end--;
+//   }
+//   return true;
+// }
 
-function isAlphaNumeric(char){
-  const code = char.charCodeAt(0);
-  return (code >= 48 && code <= 57) || //0-9
-         (code >= 65 && code <= 90) || //A-Z
-         (code >= 97 && code <= 122) // a-z
-}
+// function isAlphaNumeric(char){
+//   const code = char.charCodeAt(0);
+//   return (code >= 48 && code <= 57) || //0-9
+//          (code >= 65 && code <= 90) || //A-Z
+//          (code >= 97 && code <= 122) // a-z
+// }
 
 // function checkPallindrome(s, start){
 //   if(start >= s.length/2) return true;
@@ -193,4 +189,41 @@ function isAlphaNumeric(char){
 //   return checkPallindrome(s, start+1);
 // }
 
-console.log(checkPallindrome(str));
+let n = 7;
+// console.log(checkPallindrome(str));
+
+const findFibonacci = (n) => {
+  // let arr = new Array(n+1).fill(0);
+  // arr[0] = 0;
+  // arr[1] = 1;
+
+  // if(n === 0) return 0;
+  // if(n === 1) return "0 1"
+
+  // for(let i = 2; i <= n; i++){
+  //   arr[i] = arr[i-1] + arr[i-2];
+  // }
+  // return arr.join(" ");
+
+  // optimal approach
+
+  // if (n <= 1) return n;
+
+  // let last = 1;
+  // let second_last = 0;
+  // let final_number = 0;
+
+  // for (let i = 2; i <= n; i++) {
+  //   let curr = last + second_last;
+  //   second_last = last;
+  //   last = curr;
+  //   final_number = curr;
+  // }
+
+  // return final_number;
+  if (n <= 1) return n;
+  return findFibonacci(n-1) + findFibonacci(n-2)
+  // not best for large datasets definitely. 
+};
+
+console.log(findFibonacci(n));
