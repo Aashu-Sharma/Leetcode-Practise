@@ -1,4 +1,5 @@
-nums = [2, 2, 2, 2, 1, 3, 3, 3, 3]
+nums = [-1, -1, 1, 1]
+# highest frequency element sol doesn't work correctly for this case
 
 
 frequency_dict = {}
@@ -22,7 +23,7 @@ def find_highest_occuring_elem(lst):
     biggest_key = 0
     highest_freq = 0
     for key, value in frequency_dict.items():
-        if value > highest_freq and value != highest_freq:
+        if value > highest_freq or (value == highest_freq and key < biggest_key):
             biggest_key = key
             highest_freq = value
     return biggest_key
