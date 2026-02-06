@@ -68,19 +68,35 @@ def Recursive_Bubble_Sort(arr, n):
 
 # print(Recursive_Bubble_Sort(lst, len(lst)))
 
-def Recursive_Insertion_Sort(arr, n):
-    if n == len(arr):
+def Recursive_Insertion_Sort(arr, i, n):
+    # my approach
+    # if n == len(arr):
+    #     return
+    
+    # for i in range(n, 0, -1):
+    #     print(i)
+    #     if arr[i] < arr[i-1]:
+    #         temp = arr[i]
+    #         arr[i] = arr[i-1]
+    #         arr[i-1] = temp
+
+    # Recursive_Insertion_Sort(arr, n+1)
+    # return arr;
+
+    # the correct approach
+
+    if i == n:
         return
     
-    for i in range(n, 0, -1):
-        print(i)
-        if arr[i] < arr[i-1]:
-            temp = arr[i]
-            arr[i] = arr[i-1]
-            arr[i-1] = temp
+    j = i
 
-    Recursive_Insertion_Sort(arr, n+1)
+    while j > 0 and arr[j - 1] > arr[j]:
+        arr[j-1], arr[j] = arr[j], arr[j-1]
+        j-= 1
+    
+    Recursive_Insertion_Sort(arr, i+1, n)
     return arr;
+
     
 
-print(Recursive_Insertion_Sort(lst, 0))
+print(Recursive_Insertion_Sort(lst, 0, len(lst)))
