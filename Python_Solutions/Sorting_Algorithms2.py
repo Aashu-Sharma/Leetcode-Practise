@@ -60,19 +60,20 @@ def Recursive_Bubble_Sort(arr, n):
             swapped = 1
 
     if swapped == 0:
-        return arr;
-    
+        return arr
+
     Recursive_Bubble_Sort(arr, n - 1)
-    return arr;
+    return arr
 
 
 # print(Recursive_Bubble_Sort(lst, len(lst)))
+
 
 def Recursive_Insertion_Sort(arr, i, n):
     # my approach
     # if n == len(arr):
     #     return
-    
+
     # for i in range(n, 0, -1):
     #     print(i)
     #     if arr[i] < arr[i-1]:
@@ -87,16 +88,51 @@ def Recursive_Insertion_Sort(arr, i, n):
 
     if i == n:
         return
-    
+
     j = i
 
     while j > 0 and arr[j - 1] > arr[j]:
-        arr[j-1], arr[j] = arr[j], arr[j-1]
-        j-= 1
-    
-    Recursive_Insertion_Sort(arr, i+1, n)
-    return arr;
+        arr[j - 1], arr[j] = arr[j], arr[j - 1]
+        j -= 1
 
-    
+    Recursive_Insertion_Sort(arr, i + 1, n)
+    return arr
 
-print(Recursive_Insertion_Sort(lst, 0, len(lst)))
+
+# print(Recursive_Insertion_Sort(lst, 0, len(lst)))
+
+
+# Quick sort
+
+# Step 1: choose any number from the array you want as the pivot and place it at its correct position.
+# Step 2: then from there put the smaller on the left and larger on the right of the number's correct position.
+
+def place_at_correct_place(arr, low, high):
+    pivot = arr[low]
+    i = low
+    j = high 
+
+    while i < j :
+        while ((arr[i] <= pivot) and (i < high)):
+            i+=1
+        while (arr[j] > pivot and j >= low + 1):
+            j-=1
+        if i < j:
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    arr[low], arr[j] = arr[j], pivot
+    return j; 
+
+
+# [10, 7, 3, 2, 5]
+def quick_sort(arr, low, high):
+    if low < high:
+        partition_index = place_at_correct_place(
+            arr, low, high
+        )  # returns the partition index
+        quick_sort(arr, low, partition_index - 1)
+        quick_sort(arr, partition_index + 1, high)
+    return arr
+
+
+print(quick_sort(lst, 0, len(lst) - 1))
