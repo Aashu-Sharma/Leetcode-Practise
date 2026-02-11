@@ -43,19 +43,22 @@ def bubble_sort(lst):
     return lst
 
 
-print(bubble_sort(nums))
+# print(bubble_sort(nums))
 
 # Insertion Sort
-
+# [65, 46, 24, 52, 20, 9]
 def insertion_sort(lst):
-    for i in range(len(lst)):
-        for j in range(i, 0, -1):
-            if lst[j - 1] > lst[j]:
-                temp = lst[j - 1]
-                lst[j - 1] = lst[j]
-                lst[j] = temp
+    for i in range(1, len(lst)):
+        key = lst[i]
+        j = i-1
+        while j >= 0 and lst[j] > key:
+            lst[j+1] = lst[j]
+            j-=1
 
-    return lst
+        lst[j+1] = key
+        print(lst)
+    return nums
+        
 
 
-# print(insertion_sort(nums))
+print(insertion_sort(nums))
