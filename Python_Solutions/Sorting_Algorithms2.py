@@ -87,19 +87,21 @@ def Recursive_Insertion_Sort(arr, i, n):
     # the correct approach
 
     if i == n:
-        return
+        return arr
+    key = arr[i]
+    j = i-1
 
-    j = i
+    while j >= 0 and arr[j] > key:
+        arr[j+1] = arr[j]
+        j-=1
+    arr[j+1] = key
+    Recursive_Insertion_Sort(arr, i+1, n)
+    return arr;
+    
 
-    while j > 0 and arr[j - 1] > arr[j]:
-        arr[j - 1], arr[j] = arr[j], arr[j - 1]
-        j -= 1
-
-    Recursive_Insertion_Sort(arr, i + 1, n)
-    return arr
 
 
-# print(Recursive_Insertion_Sort(lst, 0, len(lst)))
+print(Recursive_Insertion_Sort(lst, 0, len(lst)))
 
 
 # Quick sort
@@ -135,4 +137,4 @@ def quick_sort(arr, low, high):
     return arr
 
 
-print(quick_sort(lst, 0, len(lst) - 1))
+# print(quick_sort(lst, 0, len(lst) - 1))
