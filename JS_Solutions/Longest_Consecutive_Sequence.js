@@ -32,7 +32,7 @@ let nums3 = [1, 0, 1, 2];
 
 //   return maxLen;
 // };
-
+ 
 const longestConsecutive = (nums) => {
   let set = new Set();
   let maxLen = 0;
