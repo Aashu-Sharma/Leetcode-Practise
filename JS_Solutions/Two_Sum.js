@@ -40,14 +40,18 @@ const twoSum = (arr, target) => {
     //     map.set(arr[i], i)
     // }
     // return result;
-    arr.sort((a, b) => a - b)
+    // arr.sort((a, b) => a - b)
+    let nums_with_index = nums.map((num, idx) => [idx, num]);
+    nums_with_index.sort((a,b) => a[1] - b[1]);
+    console.log(nums_with_index)
+
     let left = 0;
     let right = arr.length - 1;
 
     while(left < right){
-        const sum = arr[left] + arr[right];
+        const sum = nums_with_index[left][1] + nums_with_index[right][1];
         if (sum === target){
-            return [left, right];
+            return [nums_with_index[left][0], nums_with_index[right][0]];
         }else if(sum < target){
             left++;
         }else{
