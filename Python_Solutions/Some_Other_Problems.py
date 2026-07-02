@@ -22,39 +22,41 @@ def union_of_sorted_arrays(nums1, nums2):
 
     # unique_set = set(nums1) | set(nums2) # '|' operator combines two sets into one. It is a set only operator
     # return sorted(unique_set)
-
+# nums = [1, 2, 2, 2, 3, 4, 5]
+# nums2 = [2, 3, 4, 5, 5, 5, 6, 7, 8]
     union = []
     i, j = 0, 0
 
     while (i < len(nums1) and j < len(nums2)):
         if nums1[i] < nums2[j]:
-            if not union or nums1[i] not in union:
+            if not union or union[-1] != nums1[i]:
                 union.append(nums1[i])
             i+=1
             print(union)
         elif nums1[i] > nums2[j]:
-            if not union or nums2[j] not in union:
+            if not union or union[-1] != nums2[j]:
                 union.append(nums2[j])
             j+=1
             print(union)
         else:
-            union.append(nums1[i])
+            if not union or union[-1] != nums1[i]:
+                union.append(nums1[i])
             i+=1
             j+=1
             print(union)
     
     while i < len(nums1):
-        if not union or nums1[i] not in union:
+        if not union or union[-1] != nums1[i]:
             union.append(nums1[i])
         i+=1
     while j < len(nums2):
-        if not union or nums2[j] not in union:
+        if not union or union[-1] != nums2[j]:
             union.append(nums2[j])
         j+=1
 
     return union
 
-# print(union_of_sorted_arrays(nums, nums2))
+print(union_of_sorted_arrays(nums, nums2))
 
 
 another_nums = [2, 4, 3, 1, 6, 7, 5]
@@ -76,4 +78,4 @@ def find_missing_number(nums):
     # return expected_sum - total_sum
     
 
-print(find_missing_number(another_nums))
+# print(find_missing_number(another_nums))

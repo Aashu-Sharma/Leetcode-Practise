@@ -1,4 +1,4 @@
-nums = [10, 10, 10, 10, 9]
+nums = [8, 8, 6, 7, 3]
 
 
 def find_largest_elem(lst):
@@ -12,21 +12,36 @@ def find_largest_elem(lst):
 # print(find_largest_elem(nums))
 # [10, 10, 10, 10, 9]
 def finding_second_largest_elem(nums):
+    # largest = float('-inf')
+    # second_largest = float('-inf')
+    # count = 0
+    # for i in range(len(nums)):
+    #     if nums[i] > largest:
+    #         second_largest = largest
+    #         largest = nums[i]
+    #         count+=1
+    #     if nums[i] < largest and second_largest < nums[i]:
+    #         second_largest = nums[i]
+    #         count+=1
+    # if count == 0 or len(nums) <= 2:
+    #     return -1
+
+    # return second_largest
+
     largest = float('-inf')
     second_largest = float('-inf')
-    count = 0
+
     for i in range(len(nums)):
         if nums[i] > largest:
-            second_largest = largest
-            largest = nums[i]
-            count+=1
-        if nums[i] < largest and second_largest < nums[i]:
+            second_largest, largest = largest, nums[i]
+        
+        if second_largest < nums[i] and nums[i] != largest:
             second_largest = nums[i]
-            count+=1
-    if count == 0 or len(nums) <= 2:
-        return -1
 
-    return second_largest
+    if second_largest < 0:
+        return -1
+    else:
+        return second_largest
 
 
 def finding_second_smallest_elem(nums):
@@ -49,5 +64,5 @@ def finding_second_smallest_elem(nums):
     return second_smallest
 
 print(finding_second_largest_elem(nums))
-print(finding_second_smallest_elem(nums))
+# print(finding_second_smallest_elem(nums))
 
